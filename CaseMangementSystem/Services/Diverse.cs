@@ -2,7 +2,7 @@
 namespace CaseMangementSystem.Services
 {
     //CommonService or General purpose
-    public class CS
+    public class Diverse
     {
         public static int CheckIfIntOrNot()
         {
@@ -37,6 +37,12 @@ namespace CaseMangementSystem.Services
                 }
             }
 
+        }
+
+        public static void WaitForIt()
+        {
+            Console.WriteLine("Press any button to continue");
+            Console.ReadKey();
         }
 
     }

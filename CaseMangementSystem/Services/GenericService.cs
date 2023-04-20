@@ -1,12 +1,8 @@
 ﻿using CaseMangementSystem.Contexts;
-using CaseMangementSystem.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CaseMangementSystem.Services
 {
@@ -34,7 +30,7 @@ namespace CaseMangementSystem.Services
         // Save new data or send back the data if it already exists
         public virtual async Task<TEntity> SaveAsync(TEntity entity, Expression<Func<TEntity, bool>> predicate)
         {
-            var item = await GetAsync (predicate);
+            var item = await GetAsync(predicate);
             if (item == null)
             {
                 _context.Add(entity);
@@ -47,7 +43,7 @@ namespace CaseMangementSystem.Services
         //Remove a specific Entitydata or return null if nothing is removed
         public virtual async Task<TEntity> DeleteAsync(TEntity entity, Expression<Func<TEntity, bool>> predicate)
         {
-            var item = await GetAsync (predicate);
+            var item = await GetAsync(predicate);
             if (item != null)
             {
                 _context.Remove(entity);
@@ -57,6 +53,6 @@ namespace CaseMangementSystem.Services
             return null!;
         }
 
-  
+
     }
 }

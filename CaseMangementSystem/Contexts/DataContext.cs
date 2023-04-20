@@ -5,7 +5,7 @@ namespace CaseMangementSystem.Contexts
 {
     internal class DataContext : DbContext
     {
-        
+
 
         public DataContext()
         {
@@ -18,7 +18,7 @@ namespace CaseMangementSystem.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=HYPERION\SQLEXPRESS01;Initial Catalog=CMSDB;Integrated Security=True;Encrypt=False");
+            optionsBuilder.UseSqlServer(@"Data Source=HYPERION\SQLEXPRESS;Initial Catalog=CMSDB;Integrated Security=True;Encrypt=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

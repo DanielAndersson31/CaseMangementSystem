@@ -2,15 +2,11 @@
 using CaseMangementSystem.Models;
 using CaseMangementSystem.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CaseMangementSystem.Services
 {
-    
+
     internal class CustomerService : GenericService<CustomerEntity>
     {
         private readonly DataContext _context = new();
@@ -28,7 +24,7 @@ namespace CaseMangementSystem.Services
 
         public async Task<CustomerEntity> CreateCustomerAsync(Customer customer)
         {
-            var CreatedCustomer  = new CustomerEntity()
+            var CreatedCustomer = new CustomerEntity()
             {
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
@@ -42,6 +38,6 @@ namespace CaseMangementSystem.Services
             return CreatedCustomer;
         }
 
-       
+
     }
 }

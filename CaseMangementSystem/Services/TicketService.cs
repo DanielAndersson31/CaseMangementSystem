@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CaseMangementSystem.Services
 {
-    
-    internal class TicketService: GenericService<TicketEntity>
+
+    internal class TicketService : GenericService<TicketEntity>
     {
         private readonly DataContext _context = new();
 
@@ -14,9 +14,9 @@ namespace CaseMangementSystem.Services
         {
             return await _context.Tickets.Include(x => x.TicketStatus).Include(x => x.Comments).Include(x => x.Customer).ToListAsync();
         }
-        
-      
-       public async Task<TicketEntity> GetTicketByIdAsync(int ticketId)
+
+
+        public async Task<TicketEntity> GetTicketByIdAsync(int ticketId)
         {
             return await _context.Tickets
                 .Include(x => x.TicketStatus)
@@ -24,7 +24,7 @@ namespace CaseMangementSystem.Services
                 .Include(x => x.Customer)
                 .FirstOrDefaultAsync(x => x.TicketId == ticketId) ?? null!;
         }
-       
+
         public async Task<TicketEntity> CreateTicketAsync(Ticket ticket)
         {
             var CreatedTicket = new TicketEntity()
@@ -32,7 +32,7 @@ namespace CaseMangementSystem.Services
                 Title = ticket.Title,
                 Description = ticket.Description,
                 CustomerId = ticket.CustomerId,
-                TicketStatusId= ticket.TicketStatusId,
+                TicketStatusId = ticket.TicketStatusId,
             };
 
             await _context.Tickets.AddAsync(CreatedTicket);
@@ -41,11 +41,11 @@ namespace CaseMangementSystem.Services
             return CreatedTicket;
         }
 
-        public async Task<TicketEntity> UpdateTicketStatus(int statusId, int ticketId)
+        public async Task<TicketEntity> UpdateTicketStatusAsync(int statusId, int ticketId)
         {
             var updateTicket = await _context.Tickets.FirstOrDefaultAsync(x => x.TicketId == ticketId);
-             
-            if(updateTicket != null)
+
+            if (updateTicket != null)
             {
                 updateTicket.TicketStatusId = statusId;
                 await _context.SaveChangesAsync();
@@ -53,8 +53,8 @@ namespace CaseMangementSystem.Services
             }
 
             return null!;
-           
-            
+
+
         }
 
     }
