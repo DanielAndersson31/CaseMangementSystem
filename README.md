@@ -9,5 +9,10 @@ This App has been created using [Entity Framework](https://learn.microsoft.com/e
 * Search for all existing tickets
 * Search for a specific user
 * Search for a specific ticket 
+    * Display all comments
+    * Change ticket status
+    * Create new comment
 * Create a new customer
 * Create a new ticket
+
+
