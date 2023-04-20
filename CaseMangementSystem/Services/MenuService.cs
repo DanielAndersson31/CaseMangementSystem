@@ -28,7 +28,9 @@ namespace CaseMangementSystem.Services
                 Console.WriteLine("3. Display Ticket Information");
                 Console.WriteLine("4. Create Customer");
                 Console.WriteLine("5. Create Ticket");
-                Console.WriteLine("6. End application\n");
+                Console.WriteLine("6" +
+                    "" +
+                    ". End application\n");
 
                 switch (CS.CheckIfIntOrNot())
                 {
